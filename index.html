@@ -952,11 +952,6 @@
                   <p class="metric-label" id="metricLabel2">Hiring model</p>
                   <p class="metric-value" id="metricValue2">Remote</p>
                 </div>
-
-                <div class="metric">
-                  <p class="metric-label" id="metricLabel3">Open roles</p>
-                  <p class="metric-value" id="metricValue3">0</p>
-                </div>
               </div>
 
               <div class="hero-image-wrap">
@@ -972,8 +967,8 @@
           <section>
             <div class="section-head">
               <div>
-                <h2 id="sectionTitle">Active searches</h2>
-                <p id="sectionText">Apply directly to an open role.</p>
+                <h2 id="sectionTitle">Priority searches</h2>
+                <p id="sectionText">Roles we are actively prioritizing right now.</p>
               </div>
             </div>
 
@@ -1024,8 +1019,8 @@
             <p class="talent-pool-eyebrow" id="talentPoolEyebrow">Talent Pool</p>
             <h2 class="talent-pool-title" id="talentPoolTitle">Not the right role right now?</h2>
             <p class="talent-pool-text" id="talentPoolText">
-              If your profile does not match these open positions, you can still share your information with us.
-              Join our talent pool to be considered for future opportunities.
+              If your profile does not match these roles, you can still share your information with us.
+              We will keep your profile in mind and help connect you with a job that fits your experience.
             </p>
           </div>
 
@@ -1090,7 +1085,7 @@
         brandSubtitle: "Remote opportunities for international projects",
         heroEyebrow: "Open positions",
         heroTitle: "Join our team",
-        heroText: "At Glofy, we connect experienced LATAM talent with companies across the United States and Europe. Explore active searches and apply directly to the role that fits your profile.",
+        heroText: "At Glofy, we connect experienced LATAM talent with companies across the United States and Europe. We'll keep that in mind to help you find a job that matches your experience.",
         heroPill1: "Remote opportunities",
         heroPill2: "International projects",
         heroPill3: "USD compensation",
@@ -1098,14 +1093,13 @@
         metricValue1: "Open",
         metricLabel2: "Hiring model",
         metricValue2: "Remote",
-        metricLabel3: "Open roles",
-        sectionTitle: "Active searches",
-        sectionText: "Apply directly to an open role.",
+        sectionTitle: "Priority searches",
+        sectionText: "Roles we are actively prioritizing right now.",
         empty: "There are no open positions available right now.",
         apply: "Apply now",
         talentPoolEyebrow: "Talent Pool",
         talentPoolTitle: "Not the right role right now?",
-        talentPoolText: "If your profile does not match these open positions, you can still share your information with us. Join our talent pool to be considered for future opportunities.",
+        talentPoolText: "If your profile does not match these roles, you can still share your information with us. We will keep your profile in mind and help connect you with a job that fits your experience.",
         talentPoolBtn: "Join Talent Pool",
         back: "Back",
         responsibilities: "Responsibilities",
@@ -1123,7 +1117,7 @@
       },
       es: {
         brandSubtitle: "Oportunidades remotas para proyectos internacionales",
-        heroEyebrow: "Búsquedas activas",
+        heroEyebrow: "Open positions",
         heroTitle: "Sumate al equipo",
         heroText: "En Glofy conectamos talento experimentado de LATAM con empresas de Estados Unidos y Europa. Explorá las búsquedas activas y postulá directamente al rol que mejor se ajuste a tu perfil.",
         heroPill1: "Oportunidades remotas",
@@ -1133,14 +1127,13 @@
         metricValue1: "Open",
         metricLabel2: "Modalidad",
         metricValue2: "Remoto",
-        metricLabel3: "Vacantes abiertas",
-        sectionTitle: "Búsquedas activas",
-        sectionText: "Postulate directamente a una vacante abierta.",
+        sectionTitle: "Búsquedas principales",
+        sectionText: "Roles que estamos priorizando actualmente.",
         empty: "No hay posiciones abiertas disponibles en este momento.",
         apply: "Aplicar",
         talentPoolEyebrow: "Talent Pool",
         talentPoolTitle: "¿Tu perfil no encaja con estas búsquedas?",
-        talentPoolText: "Si tu perfil no coincide con las posiciones abiertas actualmente, igual podés compartir tu información con nosotros. Sumate a nuestro talent pool para futuras oportunidades.",
+        talentPoolText: "Si tu perfil no coincide con estos roles, igual podés compartir tu información con nosotros. La vamos a tener en cuenta para ayudarte a encontrar un trabajo que se ajuste a tu experiencia.",
         talentPoolBtn: "Sumarme al Talent Pool",
         back: "Volver",
         responsibilities: "Responsabilidades",
@@ -1254,8 +1247,6 @@
       try {
         const res = await fetch(`${API_URL}?view=jobs`);
         jobs = await res.json();
-
-        document.getElementById("metricValue3").innerText = Array.isArray(jobs) ? jobs.length : 0;
         renderJobs();
       } catch (error) {
         jobs = [];
