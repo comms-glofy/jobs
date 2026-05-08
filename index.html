@@ -1381,8 +1381,16 @@ body::before {
 
       try {
         const res = await fetch(`${API_URL}?view=jobs`);
-        jobs = await res.json();
-        renderJobs();
+jobs = await res.json();
+
+const params = new URLSearchParams(window.location.search);
+const jobSlug = params.get("job");
+
+if (jobSlug) {
+  openJob(jobSlug, false);
+} else {
+  renderJobs();
+}
       } catch (error) {
         jobs = [];
         renderJobs();
@@ -1478,14 +1486,21 @@ body::before {
       return items.join("");
     }
 
-    function openJob(slug) {
-      const job = jobs.find(j => j.slug === slug);
-      if (!job) return;
+function openJob(slug, updateUrl = true) {
+  const job = jobs.find(j => j.slug === slug);
+  if (!job) return;
 
-      currentJob = job;
-      renderDetail(job);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+  currentJob = job;
+  renderDetail(job);
+
+  if (updateUrl) {
+    const url = new URL(window.location.href);
+    url.searchParams.set("job", slug);
+    window.history.pushState({}, "", url);
+  }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
     function renderDetail(job) {
       setStaticCopy();
@@ -1506,12 +1521,16 @@ body::before {
       renderTypeform(job);
     }
 
-    function backToList() {
-      currentJob = null;
-      renderJobs();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+function backToList() {
+  currentJob = null;
 
+  const url = new URL(window.location.href);
+  url.searchParams.delete("job");
+  window.history.pushState({}, "", url);
+
+  renderJobs();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
     document.getElementById("langSwitch").addEventListener("click", () => {
       lang = lang === "en" ? "es" : "en";
 
@@ -1534,4 +1553,5 @@ body::before {
   </script>
 </body>
 </html>
+
 
