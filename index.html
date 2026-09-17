@@ -327,13 +327,13 @@ body::before {
       min-height: 390px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       background:
         linear-gradient(180deg, rgba(255,255,255,0.84) 0%, rgba(247,247,242,0.72) 100%);
     }
 
 .hero-image-wrap {
-  margin-top: 18px;
+  margin-top: 0;
   border-radius: 20px;
   overflow: hidden;
   box-shadow:
@@ -1120,21 +1120,9 @@ body::before {
             </article>
 
             <aside class="hero-side">
-              <div class="hero-side-top">
-                <div class="metric">
-                  <p class="metric-label" id="metricLabel1">Status</p>
-                  <p class="metric-value" id="metricValue1">Open</p>
-                </div>
-
-                <div class="metric">
-                  <p class="metric-label" id="metricLabel2">Hiring model</p>
-                  <p class="metric-value" id="metricValue2">Remote</p>
-                </div>
-              </div>
-
               <div class="hero-image-wrap">
                 <img
-                  src="https://glofy.co/new-front/images/resources/teamGlofyColor.png"
+                  src="https://raw.githubusercontent.com/comms-glofy/jobs/refs/heads/main/latam-jobs.png"
                   alt="Glofy team"
                   class="hero-image"
                 />
@@ -1274,10 +1262,6 @@ body::before {
         heroPill1: "Remote opportunities",
         heroPill2: "International projects",
         heroPill3: "USD compensation",
-        metricLabel1: "Status",
-        metricValue1: "Open",
-        metricLabel2: "Hiring model",
-        metricValue2: "Remote",
         sectionTitle: "Priority searches",
         sectionText: "Roles we are actively prioritizing right now.",
         empty: "There are no open positions available right now.",
@@ -1308,10 +1292,6 @@ body::before {
         heroPill1: "Oportunidades remotas",
         heroPill2: "Proyectos internacionales",
         heroPill3: "Salario en USD",
-        metricLabel1: "Estado",
-        metricValue1: "Open",
-        metricLabel2: "Modalidad",
-        metricValue2: "Remoto",
         sectionTitle: "Búsquedas principales",
         sectionText: "Roles que estamos priorizando actualmente.",
         empty: "No hay posiciones abiertas disponibles en este momento.",
@@ -1377,10 +1357,6 @@ body::before {
       document.getElementById("heroPill1").innerText = copy[lang].heroPill1;
       document.getElementById("heroPill2").innerText = copy[lang].heroPill2;
       document.getElementById("heroPill3").innerText = copy[lang].heroPill3;
-      document.getElementById("metricLabel1").innerText = copy[lang].metricLabel1;
-      document.getElementById("metricValue1").innerText = copy[lang].metricValue1;
-      document.getElementById("metricLabel2").innerText = copy[lang].metricLabel2;
-      document.getElementById("metricValue2").innerText = copy[lang].metricValue2;
       document.getElementById("sectionTitle").innerText = copy[lang].sectionTitle;
       document.getElementById("sectionText").innerText = copy[lang].sectionText;
       document.getElementById("respTitle").innerText = copy[lang].responsibilities;
